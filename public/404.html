@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Loadout</title>
+    <!-- GitHub Pages SPA fallback (rafgraph/spa-github-pages).
+         GH Pages serves this 404 for any unknown path. We encode the requested
+         path/query into a single query string and redirect to the site root,
+         where the snippet in index.html decodes it back via history.replaceState.
+         pathSegmentsToKeep = 0 because the app is served from the domain root. -->
+    <script type="text/javascript">
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

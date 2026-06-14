@@ -1,0 +1,52 @@
+[
+  {
+    "useCase": "Web content discovery",
+    "note": "Brute-forcing directories and files on a web server.",
+    "recommendations": [
+      { "name": "directory-list-2.3-medium.txt", "path": "/usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt", "when": "The default. Good size-to-coverage balance for a first directory pass. (Also at /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt via the dirbuster package.)", "tags": ["web", "directory"] },
+      { "name": "raft-medium-directories.txt", "path": "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt", "when": "Real-world dirs harvested from live sites — great complement to the list above.", "tags": ["web", "directory"] },
+      { "name": "common.txt", "path": "/usr/share/seclists/Discovery/Web-Content/common.txt", "when": "Small and quick. Use for a fast sanity sweep before going big.", "tags": ["web", "quick"] }
+    ]
+  },
+  {
+    "useCase": "Files, extensions & backups",
+    "note": "Hunting specific files, source leaks and forgotten backups.",
+    "recommendations": [
+      { "name": "raft-medium-files.txt", "path": "/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt", "when": "File names rather than directories — pair with -e for extensions.", "tags": ["web", "files"] },
+      { "name": "web-extensions.txt", "path": "/usr/share/seclists/Discovery/Web-Content/web-extensions.txt", "when": "Feed to ffuf -e to append .php, .bak, .old and friends.", "tags": ["web", "extensions"] }
+    ]
+  },
+  {
+    "useCase": "Passwords",
+    "note": "Password lists for spraying and brute-forcing.",
+    "recommendations": [
+      { "name": "rockyou.txt", "path": "/usr/share/wordlists/rockyou.txt", "when": "The classic 14M-line leak. Default for offline cracking and broad brute force. Ships gzipped on Kali & Parrot — run: sudo gunzip /usr/share/wordlists/rockyou.txt.gz", "tags": ["password", "crack"] },
+      { "name": "fasttrack.txt", "path": "/usr/share/wordlists/fasttrack.txt", "when": "Tiny curated set of common defaults — quick win on a first spray.", "tags": ["password", "quick"] },
+      { "name": "darkweb2017_top-10000.txt", "path": "/usr/share/seclists/Passwords/Common-Credentials/darkweb2017_top-10000.txt", "when": "Top 10k real-world passwords. Sweet spot when rockyou is too slow.", "tags": ["password", "spray"] }
+    ]
+  },
+  {
+    "useCase": "Usernames",
+    "note": "Account names for user enumeration and login brute force.",
+    "recommendations": [
+      { "name": "top-usernames-shortlist.txt", "path": "/usr/share/seclists/Usernames/top-usernames-shortlist.txt", "when": "Seventeen of the most common accounts — start here before going wide.", "tags": ["username", "quick"] },
+      { "name": "xato-net-10-million-usernames.txt", "path": "/usr/share/seclists/Usernames/xato-net-10-million-usernames.txt", "when": "Huge real-world username corpus when the shortlist comes up empty.", "tags": ["username"] }
+    ]
+  },
+  {
+    "useCase": "Subdomains & DNS",
+    "note": "Discovering virtual hosts and DNS subdomains.",
+    "recommendations": [
+      { "name": "subdomains-top1million-5000.txt", "path": "/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt", "when": "Fast 5k list — the right default for vhost / subdomain fuzzing.", "tags": ["dns", "vhost"] },
+      { "name": "bitquark-subdomains-top100000.txt", "path": "/usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt", "when": "Step up to 100k when the 5k list is exhausted.", "tags": ["dns"] }
+    ]
+  },
+  {
+    "useCase": "Parameters & APIs",
+    "note": "Fuzzing GET/POST parameter names and API objects.",
+    "recommendations": [
+      { "name": "burp-parameter-names.txt", "path": "/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt", "when": "Default for parameter-name fuzzing (hidden params, debug flags).", "tags": ["param", "api"] },
+      { "name": "api/objects.txt", "path": "/usr/share/seclists/Discovery/Web-Content/api/objects.txt", "when": "Common REST object/endpoint names for API enumeration.", "tags": ["api"] }
+    ]
+  }
+]
