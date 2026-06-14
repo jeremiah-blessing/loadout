@@ -53,7 +53,7 @@ export function parseRoute(path: string, search: string): Route {
     case 'tool':
       return { view: 'tool', slug: segments[1] || 'nmap', jump: searchParams.get('jump') || undefined };
     default:
-      // Bare "/" lands on the first tool, matching the previous default.
-      return { view: 'tool', slug: 'nmap' };
+      // Bare "/" (and any unknown path) lands on the tools browse view.
+      return { view: 'tools' };
   }
 }
